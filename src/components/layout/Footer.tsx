@@ -7,10 +7,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">OC</div>
-              <span className="text-lg font-bold">OpenClaw<span className="text-blue-400">Store</span></span>
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">CK</div>
+              <span className="text-lg font-bold">Claw<span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">Kit</span></span>
             </div>
-            <p className="text-gray-500 text-sm">Pre-built, security-vetted OpenClaw systems for your business.</p>
+            <p className="text-gray-500 text-sm">Pre-built, security-vetted AI systems for your business.</p>
           </div>
           <div>
             <h4 className="font-semibold text-sm mb-4">Packages</h4>
@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-600">
-          &copy; {new Date().getFullYear()} OpenClaw Store. All rights reserved.
+          &copy; {new Date().getFullYear()} ClawKit. All rights reserved.
         </div>
       </div>
     </footer>

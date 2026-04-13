@@ -9,12 +9,13 @@ const stats = [
 
 export default function TrustBar() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-8">
-      <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 text-gray-500 text-sm">
+    <div className="max-w-4xl mx-auto px-6 pt-4 pb-2">
+      <div className="border-t border-gray-800/60 pt-6" />
+      <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 text-gray-400 text-sm">
         {stats.map((stat) => (
-          <div key={stat.label} className="flex items-center gap-2">
-            <stat.icon size={16} className={stat.color} />
-            <span>{stat.label}</span>
+          <div key={stat.label} className="flex items-center gap-2.5">
+            <stat.icon size={20} className={stat.color} />
+            <span className="text-[14px]">{stat.label}</span>
           </div>
         ))}
       </div>

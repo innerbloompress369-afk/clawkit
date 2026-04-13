@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Thank You — OpenClaw Marketplace" };
+export const metadata: Metadata = { title: "Thank You — ClawKit" };
 
 export default function SuccessPage() {
   return (

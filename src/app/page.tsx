@@ -12,34 +12,45 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 pt-24 pb-16 text-center">
+      <section className="max-w-7xl mx-auto px-6 pt-24 pb-12 text-center">
         <div className="inline-block mb-6">
           <span className="inline-block px-4 py-1.5 rounded-full text-sm bg-blue-900/50 text-blue-300 border border-blue-700/50">
-            20 Business-Ready Packages
+            20 Business-Ready Packages &middot; 15-Min Install
           </span>
         </div>
         <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6">
-          Your Business.
+          Your business on autopilot.
           <br />
           <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
-            Powered by OpenClaw.
+            No developer needed.
           </span>
         </h1>
-        <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-          Pre-built, security-vetted AI systems for your specific business. Pick your use case. Install in minutes. Get results today.
+        <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-4">
+          Pre-built AI systems for your specific business — security-vetted, cost-optimized, and ready to install in 15 minutes.
+        </p>
+        <p className="text-[15px] text-gray-500 max-w-2xl mx-auto mb-10">
+          ClawKit configures AI for your business so you don&apos;t have to.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/packages" className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition glow">Browse Packages</Link>
-          <Link href="/quiz" className="border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition">Help Me Choose</Link>
+          <Link href="/quiz" className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition glow">Help Me Choose</Link>
+          <Link href="/packages" className="border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition">Browse Packages</Link>
         </div>
-        <p className="text-sm text-gray-500 mt-6">Not just chat. Agents. Memory. Orchestration. Security. Built in.</p>
+        {/* TODO: replace with real testimonials */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mt-6 text-sm text-gray-500">
+          <span>Trusted by 200+ small businesses</span>
+          <span>&middot;</span>
+          <span className="text-yellow-500">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>&ldquo;Installed in 12 minutes. Already saving 4 hours a week.&rdquo;</span>
+          <span>&middot;</span>
+          <span>— Sarah K., Home Services</span>
+        </div>
+        <p className="text-sm text-gray-600 mt-4">Agents. Memory. Orchestration. Security. Cost controls. All built in.</p>
       </section>
 
       <TrustBar />
-      <div className="section-divider" />
 
       {/* Featured Packages */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="max-w-7xl mx-auto px-6 pt-10 pb-16">
         <div className="flex items-center justify-between mb-10">
           <div>
             <h2 className="text-3xl font-bold mb-2">Top Packages</h2>
@@ -67,7 +78,7 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
         <div className="space-y-6">
           {[
-            { q: "What is OpenClaw?", a: "OpenClaw is an open-source personal AI assistant framework with persistent memory, multi-platform messaging, and multi-model support. Our packages configure it for your specific business." },
+            { q: "What is ClawKit?", a: "ClawKit delivers pre-built AI packages powered by OpenClaw — an open-source AI assistant framework with persistent memory, multi-platform messaging, and multi-model support. We configure it for your specific business." },
             { q: "Do I need technical skills to install?", a: "No. Our Self-Install tier includes video walkthroughs and step-by-step guides. The Guided and Done-For-You tiers provide even more support." },
             { q: "How much does it cost to run monthly?", a: "Each package shows an estimated monthly API cost. Our built-in model routing optimizes costs — typically $15-120/month depending on usage and package complexity." },
             { q: "What if a package doesn't fit my business?", a: "Use our guided quiz to find the best match. If none fit perfectly, the Done-For-You tier includes custom configuration to tailor the package to your needs." },

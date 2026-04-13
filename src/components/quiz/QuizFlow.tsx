@@ -27,6 +27,7 @@ export default function QuizFlow() {
   return (
     <div className="max-w-2xl mx-auto">
       <div className="mb-8">
+        <p className="text-xs text-gray-500 text-center mb-3">Takes 60 seconds &middot; We&apos;ll match you with your best-fit package</p>
         <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
           <span>Question {step + 1} of {quizQuestions.length}</span>
           <span>{Math.round(progress)}%</span>
@@ -36,7 +37,7 @@ export default function QuizFlow() {
         </div>
       </div>
       <h2 className="text-2xl font-bold mb-8">{currentQuestion.question}</h2>
-      <div className="space-y-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {currentQuestion.options.map((option) => (
           <button key={option.id} onClick={() => handleSelect(option.id)}
             className="w-full text-left bg-[#12121a] border border-gray-800 hover:border-blue-500 rounded-xl p-4 text-sm transition">

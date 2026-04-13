@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const pkg = getPackageBySlug(slug);
   if (!pkg) return { title: "Package Not Found" };
-  return { title: `${pkg.name} — OpenClaw Marketplace`, description: pkg.description };
+  return { title: `${pkg.name} — ClawKit`, description: pkg.description };
 }
 
 export default async function PackageDetailPage({ params }: PageProps) {

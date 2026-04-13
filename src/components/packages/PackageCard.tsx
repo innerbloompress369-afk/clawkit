@@ -31,6 +31,9 @@ export default function PackageCard({ pkg }: { pkg: Package }) {
           <div>
             <span className="text-white font-bold">${pkg.pricing.selfInstall}</span>
             <span className="text-gray-500 text-sm"> self-install</span>
+            <span className="text-gray-600 text-xs ml-2">
+              {pkg.pricing.selfInstall <= 29 ? "Simple" : pkg.pricing.selfInstall <= 39 ? "Standard" : "Advanced"}
+            </span>
           </div>
           <div className="flex items-center gap-3">
             <DifficultyBadge difficulty={pkg.installDifficulty} />
