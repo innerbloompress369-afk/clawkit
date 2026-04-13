@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenClaw Marketplace — Concept Mockup</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+* { font-family: 'Inter', sans-serif; }
+body { background: #0a0a0f; color: #e2e8f0; }
+.glow { box-shadow: 0 0 40px rgba(59, 130, 246, 0.15); }
+.glow-orange { box-shadow: 0 0 40px rgba(249, 115, 22, 0.15); }
+.gradient-border { border: 1px solid transparent; background-clip: padding-box; position: relative; }
+.gradient-border::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.card-hover:hover { transform: translateY(-4px); transition: all 0.3s; }
+.card-hover { transition: all 0.3s; }
+.diagram-box { background: #12121a; border: 1px solid #1e293b; border-radius: 12px; padding: 32px; }
+.flow-arrow { color: #3b82f6; font-size: 24px; }
+.section-divider { height: 1px; background: linear-gradient(90deg, transparent, #1e293b, transparent); margin: 80px 0; }
+.tag { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 500; }
+.tier-simple { background: #064e3b; color: #6ee7b7; }
+.tier-medium { background: #1e3a5f; color: #93c5fd; }
+.tier-complex { background: #4c1d95; color: #c4b5fd; }
+.tier-reasoning { background: #7c2d12; color: #fdba74; }
+.nav-blur { backdrop-filter: blur(12px); background: rgba(10, 10, 15, 0.8); }
+</style>
+</head>
+<body>
+
+<!-- ============ SECTION LABEL ============ -->
+<div class="bg-orange-600 text-white text-center py-3 text-sm font-semibold tracking-wider uppercase">
+  Concept Mockup & Diagrams — Not Final Design
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="nav-blur sticky top-0 z-50 border-b border-gray-800">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">OC</div>
+      <span class="text-xl font-bold">OpenClaw<span class="text-blue-400">Store</span></span>
+    </div>
+    <div class="flex items-center gap-8 text-sm text-gray-400">
+      <a href="#packages" class="hover:text-white transition">Packages</a>
+      <a href="#how" class="hover:text-white transition">How It Works</a>
+      <a href="#pricing" class="hover:text-white transition">Pricing</a>
+      <button class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-lg font-medium transition">Find My Package</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO SECTION ============ -->
+<section class="max-w-7xl mx-auto px-6 pt-24 pb-16 text-center">
+  <div class="inline-block mb-6">
+    <span class="tag bg-blue-900/50 text-blue-300 border border-blue-700/50">20 Business-Ready Packages</span>
+  </div>
+  <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+    Your Business.<br>
+    <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">Powered by OpenClaw.</span>
+  </h1>
+  <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+    Pre-built, security-vetted AI systems for your specific business. Pick your use case. Install in minutes. Get results today.
+  </p>
+  <div class="flex items-center justify-center gap-4">
+    <button class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition glow">Browse Packages</button>
+    <button class="border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition">Help Me Choose</button>
+  </div>
+  <p class="text-sm text-gray-500 mt-6">Not just chat. Agents. Memory. Orchestration. Security. Built in.</p>
+</section>
+
+<!-- ============ TRUST BAR ============ -->
+<div class="max-w-4xl mx-auto px-6 py-8">
+  <div class="flex items-center justify-center gap-12 text-gray-500 text-sm">
+    <div class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> Security Vetted</div>
+    <div class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> Token Optimized</div>
+    <div class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> Video Install Guides</div>
+    <div class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> 80% Cost Reduction</div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ============ PACKAGE CARDS ============ -->
+<section id="packages" class="max-w-7xl mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold mb-2">Packages</h2>
+  <p class="text-gray-400 mb-10">Each package is a complete, working OpenClaw system — not just prompts or configs.</p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Card 1 -->
+    <div class="gradient-border rounded-2xl bg-[#12121a] p-6 card-hover cursor-pointer">
+      <div class="flex items-center justify-between mb-4">
+        <span class="text-2xl">🎯</span>
+        <span class="tag bg-green-900/50 text-green-300">Most Popular</span>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Lead Generation & Sales Pipeline</h3>
+      <p class="text-gray-400 text-sm mb-4">Capture leads, qualify automatically, follow up on schedule, track your pipeline — all on autopilot.</p>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="tag bg-gray-800 text-gray-300">3 Agents</span>
+        <span class="tag bg-gray-800 text-gray-300">CRM Connector</span>
+        <span class="tag bg-gray-800 text-gray-300">Email</span>
+        <span class="tag bg-gray-800 text-gray-300">SMS</span>
+      </div>
+      <div class="text-sm text-gray-500 mb-4">
+        <strong class="text-gray-300">Includes:</strong> Lead capture agent, qualification logic, follow-up sequences, pipeline dashboard, CRM sync
+      </div>
+      <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+        <div>
+          <span class="text-sm text-gray-500">From</span>
+          <span class="text-xl font-bold text-white ml-1">$49</span>
+        </div>
+        <div class="flex items-center gap-1 text-sm text-gray-500">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span> Easy Install
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="gradient-border rounded-2xl bg-[#12121a] p-6 card-hover cursor-pointer">
+      <div class="flex items-center justify-between mb-4">
+        <span class="text-2xl">⚖️</span>
+        <span class="tag bg-purple-900/50 text-purple-300">Vertical</span>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Legal Practice Assistant</h3>
+      <p class="text-gray-400 text-sm mb-4">Contract review, client intake, deadline tracking, legal research — built for solo attorneys and small firms.</p>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="tag bg-gray-800 text-gray-300">4 Agents</span>
+        <span class="tag bg-gray-800 text-gray-300">Doc Analysis</span>
+        <span class="tag bg-gray-800 text-gray-300">Calendar</span>
+        <span class="tag bg-gray-800 text-gray-300">Research</span>
+      </div>
+      <div class="text-sm text-gray-500 mb-4">
+        <strong class="text-gray-300">Includes:</strong> Contract review agent, intake workflow, deadline tracker, research assistant, compliance checks
+      </div>
+      <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+        <div>
+          <span class="text-sm text-gray-500">From</span>
+          <span class="text-xl font-bold text-white ml-1">$79</span>
+        </div>
+        <div class="flex items-center gap-1 text-sm text-gray-500">
+          <span class="w-2 h-2 rounded-full bg-yellow-500"></span> Guided Recommended
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="gradient-border rounded-2xl bg-[#12121a] p-6 card-hover cursor-pointer">
+      <div class="flex items-center justify-between mb-4">
+        <span class="text-2xl">🏠</span>
+        <span class="tag bg-orange-900/50 text-orange-300">Underserved</span>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Home Services & Trades</h3>
+      <p class="text-gray-400 text-sm mb-4">Job scheduling, estimate follow-up, review requests, dispatch — built for HVAC, plumbing, electrical.</p>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="tag bg-gray-800 text-gray-300">3 Agents</span>
+        <span class="tag bg-gray-800 text-gray-300">Scheduling</span>
+        <span class="tag bg-gray-800 text-gray-300">SMS</span>
+        <span class="tag bg-gray-800 text-gray-300">Reviews</span>
+      </div>
+      <div class="text-sm text-gray-500 mb-4">
+        <strong class="text-gray-300">Includes:</strong> Dispatch agent, estimate follow-up, review request automation, job scheduler, customer comms
+      </div>
+      <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+        <div>
+          <span class="text-sm text-gray-500">From</span>
+          <span class="text-xl font-bold text-white ml-1">$49</span>
+        </div>
+        <div class="flex items-center gap-1 text-sm text-gray-500">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span> Easy Install
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="text-center mt-8">
+    <button class="text-blue-400 hover:text-blue-300 font-medium transition">View All 20 Packages →</button>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============ DIAGRAM 1: USER JOURNEY FLOW ============ -->
+<section id="how" class="max-w-7xl mx-auto px-6 py-16">
+  <div class="text-center mb-4">
+    <span class="tag bg-blue-900/50 text-blue-300 border border-blue-700/50">Diagram 1</span>
+  </div>
+  <h2 class="text-3xl font-bold text-center mb-2">User Journey</h2>
+  <p class="text-gray-400 text-center mb-12">From landing to results — the complete buyer experience.</p>
+
+  <div class="diagram-box">
+    <div class="flex flex-col lg:flex-row items-stretch gap-4">
+
+      <div class="flex-1 bg-gradient-to-b from-blue-900/30 to-transparent rounded-xl p-6 border border-blue-800/30">
+        <div class="text-blue-400 font-bold text-sm mb-2">STEP 1</div>
+        <h4 class="text-lg font-bold mb-2">Browse & Discover</h4>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>→ Land on marketplace</li>
+          <li>→ See packages by category</li>
+          <li>→ Understand value in 5 seconds</li>
+          <li>→ OR click "Help Me Choose"</li>
+        </ul>
+      </div>
+
+      <div class="flex items-center justify-center text-blue-500 text-2xl lg:rotate-0 rotate-90">▶</div>
+
+      <div class="flex-1 bg-gradient-to-b from-purple-900/30 to-transparent rounded-xl p-6 border border-purple-800/30">
+        <div class="text-purple-400 font-bold text-sm mb-2">STEP 2</div>
+        <h4 class="text-lg font-bold mb-2">Select & Purchase</h4>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>→ Pick package</li>
+          <li>→ Choose tier (Self / Guided / DFY)</li>
+          <li>→ Purchase</li>
+          <li>→ Get instant access</li>
+        </ul>
+      </div>
+
+      <div class="flex items-center justify-center text-blue-500 text-2xl lg:rotate-0 rotate-90">▶</div>
+
+      <div class="flex-1 bg-gradient-to-b from-orange-900/30 to-transparent rounded-xl p-6 border border-orange-800/30">
+        <div class="text-orange-400 font-bold text-sm mb-2">STEP 3</div>
+        <h4 class="text-lg font-bold mb-2">Install</h4>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>→ Pre-flight checklist</li>
+          <li>→ Video walkthrough</li>
+          <li>→ Step-by-step commands</li>
+          <li>→ Verify at each step</li>
+        </ul>
+      </div>
+
+      <div class="flex items-center justify-center text-blue-500 text-2xl lg:rotate-0 rotate-90">▶</div>
+
+      <div class="flex-1 bg-gradient-to-b from-green-900/30 to-transparent rounded-xl p-6 border border-green-800/30">
+        <div class="text-green-400 font-bold text-sm mb-2">STEP 4</div>
+        <h4 class="text-lg font-bold mb-2">First Results</h4>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>→ 3 "First Missions"</li>
+          <li>→ Visible results immediately</li>
+          <li>→ System is working FOR you</li>
+          <li>→ Proof of value moment</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============ DIAGRAM 2: WHAT'S INSIDE A PACKAGE ============ -->
+<section class="max-w-7xl mx-auto px-6 py-16">
+  <div class="text-center mb-4">
+    <span class="tag bg-purple-900/50 text-purple-300 border border-purple-700/50">Diagram 2</span>
+  </div>
+  <h2 class="text-3xl font-bold text-center mb-2">What's Inside Every Package</h2>
+  <p class="text-gray-400 text-center mb-12">The non-negotiable baseline that makes OpenClaw more than chat.</p>
+
+  <div class="diagram-box">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <!-- Left: Architecture Stack -->
+      <div>
+        <h4 class="text-sm font-bold text-blue-400 uppercase tracking-wider mb-4">Architecture Layers</h4>
+
+        <!-- Layer 1 -->
+        <div class="bg-green-900/20 border border-green-800/40 rounded-lg p-4 mb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-green-900/50 flex items-center justify-center text-green-400 font-bold text-xs">TOP</div>
+            <div>
+              <div class="font-bold text-green-300">Intent Layer</div>
+              <div class="text-xs text-gray-400">MISSION.md · PLAYBOOK.md · HEARTBEAT.md</div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">What the system does, how it works, when it acts — all shaped by YOUR business type.</p>
+        </div>
+
+        <!-- Layer 2 -->
+        <div class="bg-blue-900/20 border border-blue-800/40 rounded-lg p-4 mb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-blue-900/50 flex items-center justify-center text-blue-400 font-bold text-xs">MID</div>
+            <div>
+              <div class="font-bold text-blue-300">Intelligence Layer</div>
+              <div class="text-xs text-gray-400">Agents · Orchestration · Memory · Behavior Logic</div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">Multi-agent systems, decision thresholds, persistent memory, proactive loops.</p>
+        </div>
+
+        <!-- Layer 3 -->
+        <div class="bg-purple-900/20 border border-purple-800/40 rounded-lg p-4 mb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-purple-900/50 flex items-center justify-center text-purple-400 font-bold text-xs">BASE</div>
+            <div>
+              <div class="font-bold text-purple-300">Infrastructure Layer</div>
+              <div class="text-xs text-gray-400">Security · Token Router · Gateway · Install Validation</div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">Permission boundaries, model routing, spend controls, environment checks.</p>
+        </div>
+
+        <!-- Layer 4 -->
+        <div class="bg-orange-900/20 border border-orange-800/40 rounded-lg p-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-orange-900/50 flex items-center justify-center text-orange-400 font-bold text-xs">EXT</div>
+            <div>
+              <div class="font-bold text-orange-300">Connectors Layer</div>
+              <div class="text-xs text-gray-400">TOOLS.md · CRM · Email · SMS · Calendar · APIs</div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">Pre-mapped integrations specific to the business use case.</p>
+        </div>
+      </div>
+
+      <!-- Right: File System -->
+      <div>
+        <h4 class="text-sm font-bold text-purple-400 uppercase tracking-wider mb-4">Package File Structure</h4>
+        <div class="bg-[#0d0d14] rounded-lg p-5 font-mono text-sm border border-gray-800">
+          <div class="text-gray-500 mb-3">📦 lead-generation-package/</div>
+          <div class="ml-4 space-y-1.5">
+            <div><span class="text-green-400">├──</span> <span class="text-green-300">MISSION.md</span> <span class="text-gray-600">← system purpose</span></div>
+            <div><span class="text-green-400">├──</span> <span class="text-green-300">PLAYBOOK.md</span> <span class="text-gray-600">← workflows</span></div>
+            <div><span class="text-green-400">├──</span> <span class="text-green-300">HEARTBEAT.md</span> <span class="text-gray-600">← proactive loops</span></div>
+            <div><span class="text-blue-400">├──</span> <span class="text-blue-300">MEMORY.md</span> <span class="text-gray-600">← memory index</span></div>
+            <div><span class="text-purple-400">├──</span> <span class="text-purple-300">SECURITY.md</span> <span class="text-gray-600">← permissions</span></div>
+            <div><span class="text-orange-400">├──</span> <span class="text-orange-300">TOOLS.md</span> <span class="text-gray-600">← connectors</span></div>
+            <div><span class="text-yellow-400">├──</span> <span class="text-yellow-300">ROUTER.config</span> <span class="text-gray-600">← model tiers</span></div>
+            <div class="text-gray-500 mt-3">├── agents/</div>
+            <div class="ml-4">
+              <div><span class="text-gray-500">├──</span> lead-capture.md</div>
+              <div><span class="text-gray-500">├──</span> qualifier.md</div>
+              <div><span class="text-gray-500">└──</span> follow-up.md</div>
+            </div>
+            <div class="text-gray-500 mt-2">├── workflows/</div>
+            <div class="ml-4">
+              <div><span class="text-gray-500">├──</span> intake-flow.md</div>
+              <div><span class="text-gray-500">└──</span> nurture-sequence.md</div>
+            </div>
+            <div class="text-gray-500 mt-2">└── install/</div>
+            <div class="ml-4">
+              <div><span class="text-gray-500">├──</span> README.md</div>
+              <div><span class="text-gray-500">├──</span> preflight-checklist.md</div>
+              <div><span class="text-gray-500">└──</span> video-guide.mp4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============ DIAGRAM 3: TOKEN ROUTING ============ -->
+<section class="max-w-7xl mx-auto px-6 py-16">
+  <div class="text-center mb-4">
+    <span class="tag bg-orange-900/50 text-orange-300 border border-orange-700/50">Diagram 3</span>
+  </div>
+  <h2 class="text-3xl font-bold text-center mb-2">Intelligent Token Routing</h2>
+  <p class="text-gray-400 text-center mb-12">How every package saves up to 80% on API costs — automatically.</p>
+
+  <div class="diagram-box">
+    <!-- Flow -->
+    <div class="flex flex-col items-center">
+
+      <!-- Input -->
+      <div class="bg-gray-800 rounded-xl px-8 py-4 text-center mb-6 max-w-md">
+        <div class="text-sm text-gray-400 mb-1">Every Request</div>
+        <div class="font-bold">"Schedule a follow-up with John next Tuesday"</div>
+      </div>
+
+      <div class="text-blue-500 text-2xl mb-6">▼</div>
+
+      <!-- Router -->
+      <div class="bg-blue-900/30 border border-blue-700/40 rounded-2xl p-6 mb-6 max-w-lg w-full text-center">
+        <div class="text-blue-400 font-bold mb-2">🔀 claw-llm-router</div>
+        <div class="text-sm text-gray-400">Analyzes complexity locally (no API calls)<br>Scores request → assigns tier</div>
+      </div>
+
+      <div class="text-blue-500 text-2xl mb-6">▼</div>
+
+      <!-- 4 Tiers -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 w-full max-w-4xl mb-8">
+
+        <div class="bg-[#0d1f0d] border border-green-800/40 rounded-xl p-4 text-center">
+          <div class="tier-simple tag mb-2">SIMPLE</div>
+          <div class="text-sm font-bold text-green-300 mb-1">Haiku / GPT-4o-mini</div>
+          <div class="text-xs text-gray-400 mb-2">Scheduling, reminders, simple lookups</div>
+          <div class="text-xs text-green-400 font-bold">~$0.001/request</div>
+          <div class="text-xs text-gray-600 mt-1">≈ 70% of requests</div>
+        </div>
+
+        <div class="bg-[#0d1520] border border-blue-800/40 rounded-xl p-4 text-center">
+          <div class="tier-medium tag mb-2">MEDIUM</div>
+          <div class="text-sm font-bold text-blue-300 mb-1">Sonnet / GPT-4o</div>
+          <div class="text-xs text-gray-400 mb-2">Drafting, summarizing, routine analysis</div>
+          <div class="text-xs text-blue-400 font-bold">~$0.01/request</div>
+          <div class="text-xs text-gray-600 mt-1">≈ 20% of requests</div>
+        </div>
+
+        <div class="bg-[#150d20] border border-purple-800/40 rounded-xl p-4 text-center">
+          <div class="tier-complex tag mb-2">COMPLEX</div>
+          <div class="text-sm font-bold text-purple-300 mb-1">Opus / GPT-4</div>
+          <div class="text-xs text-gray-400 mb-2">Strategy, multi-step reasoning, decisions</div>
+          <div class="text-xs text-purple-400 font-bold">~$0.05/request</div>
+          <div class="text-xs text-gray-600 mt-1">≈ 8% of requests</div>
+        </div>
+
+        <div class="bg-[#200d0d] border border-orange-800/40 rounded-xl p-4 text-center">
+          <div class="tier-reasoning tag mb-2">REASONING</div>
+          <div class="text-sm font-bold text-orange-300 mb-1">Opus + Thinking</div>
+          <div class="text-xs text-gray-400 mb-2">Contract analysis, complex planning</div>
+          <div class="text-xs text-orange-400 font-bold">~$0.15/request</div>
+          <div class="text-xs text-gray-600 mt-1">≈ 2% of requests</div>
+        </div>
+
+      </div>
+
+      <!-- Cost comparison -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
+        <div class="bg-red-900/20 border border-red-800/40 rounded-xl p-5 text-center">
+          <div class="text-red-400 font-bold text-sm mb-1">WITHOUT Router</div>
+          <div class="text-3xl font-black text-red-300">$300–750</div>
+          <div class="text-xs text-gray-400">/month — everything hits Opus</div>
+        </div>
+        <div class="bg-green-900/20 border border-green-800/40 rounded-xl p-5 text-center">
+          <div class="text-green-400 font-bold text-sm mb-1">WITH Router</div>
+          <div class="text-3xl font-black text-green-300">$60–150</div>
+          <div class="text-xs text-gray-400">/month — smart model selection</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============ DIAGRAM 4: CHAT VS INTELLIGENT ASSISTANT ============ -->
+<section class="max-w-7xl mx-auto px-6 py-16">
+  <div class="text-center mb-4">
+    <span class="tag bg-red-900/50 text-red-300 border border-red-700/50">Diagram 4</span>
+  </div>
+  <h2 class="text-3xl font-bold text-center mb-2">Chat vs. Intelligent Assistant</h2>
+  <p class="text-gray-400 text-center mb-12">Why our packages are fundamentally different from basic OpenClaw.</p>
+
+  <div class="diagram-box">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Basic Chat -->
+      <div class="bg-red-900/10 border border-red-800/30 rounded-xl p-6">
+        <h4 class="text-red-400 font-bold text-lg mb-4">❌ Basic OpenClaw (Chat)</h4>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 mt-0.5">✕</span>
+            <span class="text-gray-400">Single model — burns money on every request</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 mt-0.5">✕</span>
+            <span class="text-gray-400">No persistent memory — forgets everything</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 mt-0.5">✕</span>
+            <span class="text-gray-400">No proactive behavior — only responds when asked</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 mt-0.5">✕</span>
+            <span class="text-gray-400">No security boundaries — wide open permissions</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 mt-0.5">✕</span>
+            <span class="text-gray-400">Generic — same system for every business</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 mt-0.5">✕</span>
+            <span class="text-gray-400">No workflows — just Q&A</span>
+          </li>
+        </ul>
+        <div class="mt-6 p-3 bg-red-900/20 rounded-lg text-center">
+          <div class="text-sm text-red-300 font-medium">"I installed complicated software"</div>
+        </div>
+      </div>
+
+      <!-- Our Package -->
+      <div class="bg-green-900/10 border border-green-800/30 rounded-xl p-6">
+        <h4 class="text-green-400 font-bold text-lg mb-4">✅ Our Package (Intelligent Assistant)</h4>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-0.5">✓</span>
+            <span class="text-gray-300"><strong>Smart routing</strong> — right model for each task, 80% savings</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-0.5">✓</span>
+            <span class="text-gray-300"><strong>Persistent memory</strong> — learns your business over time</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-0.5">✓</span>
+            <span class="text-gray-300"><strong>Proactive heartbeat</strong> — checks, follows up, reminds</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-0.5">✓</span>
+            <span class="text-gray-300"><strong>Security hardened</strong> — permission boundaries, data rules</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-0.5">✓</span>
+            <span class="text-gray-300"><strong>Business-specific</strong> — agents built for YOUR use case</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-0.5">✓</span>
+            <span class="text-gray-300"><strong>Multi-agent workflows</strong> — orchestrated, autonomous</span>
+          </li>
+        </ul>
+        <div class="mt-6 p-3 bg-green-900/20 rounded-lg text-center">
+          <div class="text-sm text-green-300 font-medium">"I have a system working for me"</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============ DIAGRAM 5: COMPETITIVE POSITIONING ============ -->
+<section class="max-w-7xl mx-auto px-6 py-16">
+  <div class="text-center mb-4">
+    <span class="tag bg-yellow-900/50 text-yellow-300 border border-yellow-700/50">Diagram 5</span>
+  </div>
+  <h2 class="text-3xl font-bold text-center mb-2">Market Positioning</h2>
+  <p class="text-gray-400 text-center mb-12">Where we sit vs. the competition.</p>
+
+  <div class="diagram-box overflow-x-auto">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="border-b border-gray-700">
+          <th class="text-left py-3 px-4 text-gray-400 font-medium"></th>
+          <th class="text-center py-3 px-4 text-gray-400 font-medium">MyClaw.ai</th>
+          <th class="text-center py-3 px-4 text-gray-400 font-medium">MyClaw.tech</th>
+          <th class="text-center py-3 px-4 text-gray-400 font-medium">ClawHub</th>
+          <th class="text-center py-3 px-4 text-gray-400 font-medium">Claw Mart</th>
+          <th class="text-center py-3 px-4 bg-blue-900/20 rounded-t-lg">
+            <span class="text-blue-300 font-bold">Us</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-gray-800">
+          <td class="py-3 px-4 text-gray-300 font-medium">What they sell</td>
+          <td class="text-center py-3 px-4 text-gray-400">Hosting</td>
+          <td class="text-center py-3 px-4 text-gray-400">Human setup</td>
+          <td class="text-center py-3 px-4 text-gray-400">Individual skills</td>
+          <td class="text-center py-3 px-4 text-gray-400">Configs + prompts</td>
+          <td class="text-center py-3 px-4 bg-blue-900/10 text-blue-300 font-medium">Complete systems</td>
+        </tr>
+        <tr class="border-b border-gray-800">
+          <td class="py-3 px-4 text-gray-300 font-medium">Security vetted</td>
+          <td class="text-center py-3 px-4">—</td>
+          <td class="text-center py-3 px-4 text-yellow-400">Partial</td>
+          <td class="text-center py-3 px-4 text-red-400">No ⚠️</td>
+          <td class="text-center py-3 px-4 text-yellow-400">Unknown</td>
+          <td class="text-center py-3 px-4 bg-blue-900/10 text-green-400">Yes ✓</td>
+        </tr>
+        <tr class="border-b border-gray-800">
+          <td class="py-3 px-4 text-gray-300 font-medium">Token optimization</td>
+          <td class="text-center py-3 px-4 text-red-400">No</td>
+          <td class="text-center py-3 px-4 text-yellow-400">Manual</td>
+          <td class="text-center py-3 px-4 text-red-400">No</td>
+          <td class="text-center py-3 px-4 text-red-400">No</td>
+          <td class="text-center py-3 px-4 bg-blue-900/10 text-green-400">Built in ✓</td>
+        </tr>
+        <tr class="border-b border-gray-800">
+          <td class="py-3 px-4 text-gray-300 font-medium">Business-specific</td>
+          <td class="text-center py-3 px-4 text-red-400">No</td>
+          <td class="text-center py-3 px-4 text-green-400">Yes</td>
+          <td class="text-center py-3 px-4 text-red-400">Generic</td>
+          <td class="text-center py-3 px-4 text-yellow-400">Some</td>
+          <td class="text-center py-3 px-4 bg-blue-900/10 text-green-400">20 verticals ✓</td>
+        </tr>
+        <tr class="border-b border-gray-800">
+          <td class="py-3 px-4 text-gray-300 font-medium">Scales</td>
+          <td class="text-center py-3 px-4 text-green-400">Yes</td>
+          <td class="text-center py-3 px-4 text-red-400">No (1:1)</td>
+          <td class="text-center py-3 px-4 text-green-400">Yes</td>
+          <td class="text-center py-3 px-4 text-green-400">Yes</td>
+          <td class="text-center py-3 px-4 bg-blue-900/10 text-green-400">Yes ✓</td>
+        </tr>
+        <tr>
+          <td class="py-3 px-4 text-gray-300 font-medium">Install support</td>
+          <td class="text-center py-3 px-4 text-gray-400">N/A (hosted)</td>
+          <td class="text-center py-3 px-4 text-green-400">Full</td>
+          <td class="text-center py-3 px-4 text-red-400">None</td>
+          <td class="text-center py-3 px-4 text-yellow-400">Docs only</td>
+          <td class="text-center py-3 px-4 bg-blue-900/10 text-green-400">Video + Guided + DFY ✓</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============ DIAGRAM 6: PACKAGE BUILD PROCESS ============ -->
+<section class="max-w-7xl mx-auto px-6 py-16">
+  <div class="text-center mb-4">
+    <span class="tag bg-green-900/50 text-green-300 border border-green-700/50">Diagram 6</span>
+  </div>
+  <h2 class="text-3xl font-bold text-center mb-2">How We Build Each Package</h2>
+  <p class="text-gray-400 text-center mb-12">Our internal process — research to ship.</p>
+
+  <div class="diagram-box">
+    <div class="grid grid-cols-1 md:grid-cols-7 gap-3">
+
+      <div class="bg-blue-900/20 border border-blue-800/30 rounded-xl p-4 text-center">
+        <div class="text-2xl mb-2">🔍</div>
+        <div class="font-bold text-sm text-blue-300">Research</div>
+        <div class="text-xs text-gray-500 mt-1">Scrape & evaluate existing repos</div>
+      </div>
+
+      <div class="flex items-center justify-center text-gray-600">→</div>
+
+      <div class="bg-purple-900/20 border border-purple-800/30 rounded-xl p-4 text-center">
+        <div class="text-2xl mb-2">📐</div>
+        <div class="font-bold text-sm text-purple-300">Architect</div>
+        <div class="text-xs text-gray-500 mt-1">Design our own system</div>
+      </div>
+
+      <div class="flex items-center justify-center text-gray-600">→</div>
+
+      <div class="bg-orange-900/20 border border-orange-800/30 rounded-xl p-4 text-center">
+        <div class="text-2xl mb-2">🔨</div>
+        <div class="font-bold text-sm text-orange-300">Build</div>
+        <div class="text-xs text-gray-500 mt-1">Create proprietary package</div>
+      </div>
+
+      <div class="flex items-center justify-center text-gray-600">→</div>
+
+      <div class="bg-green-900/20 border border-green-800/30 rounded-xl p-4 text-center">
+        <div class="text-2xl mb-2">🛡️</div>
+        <div class="font-bold text-sm text-green-300">Vet & Ship</div>
+        <div class="text-xs text-gray-500 mt-1">Security audit, test, document</div>
+      </div>
+
+    </div>
+
+    <div class="mt-8 bg-gray-800/50 rounded-xl p-5">
+      <div class="text-sm font-bold text-gray-300 mb-3">Key Principle:</div>
+      <div class="text-sm text-gray-400">
+        We <strong class="text-white">research</strong> the best existing repos → We <strong class="text-white">build our own</strong> using the best patterns → We <strong class="text-white">add our baseline</strong> (security, routing, memory, orchestration) → We <strong class="text-white">never resell</strong> someone else's work.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============ PRICING SECTION ============ -->
+<section id="pricing" class="max-w-7xl mx-auto px-6 py-16">
+  <div class="text-center mb-4">
+    <span class="tag bg-blue-900/50 text-blue-300 border border-blue-700/50">Pricing</span>
+  </div>
+  <h2 class="text-3xl font-bold text-center mb-2">Choose Your Path</h2>
+  <p class="text-gray-400 text-center mb-12">Every tier gets the same package. The difference is how much help you want installing it.</p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+
+    <!-- Tier 1 -->
+    <div class="bg-[#12121a] border border-gray-800 rounded-2xl p-6 card-hover">
+      <div class="text-sm text-gray-400 font-medium mb-1">Self-Install</div>
+      <div class="text-3xl font-black mb-1">$49–99</div>
+      <div class="text-sm text-gray-500 mb-6">per package</div>
+      <ul class="space-y-2 text-sm text-gray-400 mb-6">
+        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Complete package files</li>
+        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Video install guides</li>
+        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Step-by-step docs</li>
+        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Troubleshooting guide</li>
+        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 3 First Missions</li>
+      </ul>
+      <button class="w-full border border-gray-600 hover:border-gray-400 text-gray-300 py-3 rounded-xl font-medium transition">Get Started</button>
+    </div>
+
+    <!-- Tier 2 -->
+    <div class="gradient-border bg-[#12121a] rounded-2xl p-6 card-hover relative">
+      <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+        <span class="tag bg-blue-600 text-white text-xs px-3 py-1">Recommended</span>
+      </div>
+      <div class="text-sm text-blue-400 font-medium mb-1">Guided Install</div>
+      <div class="text-3xl font-black mb-1">$149–249</div>
+      <div class="text-sm text-gray-500 mb-6">per package</div>
+      <ul class="space-y-2 text-sm text-gray-400 mb-6">
+        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Everything in Self-Install</li>
+        <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> 1-hour live install session</li>
+        <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> Screen-share walkthrough</li>
+        <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> Custom configuration help</li>
+        <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> 7-day email support</li>
+      </ul>
+      <button class="w-full bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl font-medium transition">Get Started</button>
+    </div>
+
+    <!-- Tier 3 -->
+    <div class="bg-[#12121a] border border-gray-800 rounded-2xl p-6 card-hover">
+      <div class="text-sm text-orange-400 font-medium mb-1">Done-For-You</div>
+      <div class="text-3xl font-black mb-1">$349–599</div>
+      <div class="text-sm text-gray-500 mb-6">per package</div>
+      <ul class="space-y-2 text-sm text-gray-400 mb-6">
+        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Everything in Guided</li>
+        <li class="flex items-center gap-2"><span class="text-orange-400">✓</span> We install it for you</li>
+        <li class="flex items-center gap-2"><span class="text-orange-400">✓</span> Full configuration</li>
+        <li class="flex items-center gap-2"><span class="text-orange-400">✓</span> Onboarding walkthrough</li>
+        <li class="flex items-center gap-2"><span class="text-orange-400">✓</span> 30-day priority support</li>
+      </ul>
+      <button class="w-full border border-gray-600 hover:border-gray-400 text-gray-300 py-3 rounded-xl font-medium transition">Get Started</button>
+    </div>
+
+  </div>
+</section>
+
+<div class="py-20"></div>
+
+</body>
+</html>
