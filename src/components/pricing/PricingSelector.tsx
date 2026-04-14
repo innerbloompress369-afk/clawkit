@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check } from "lucide-react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface PricingSelectorProps {
   slug?: string;
@@ -48,9 +49,15 @@ export default function PricingSelector({ slug, selfInstallPrice = 49 }: Pricing
 
   return (
     <section id="pricing" className="max-w-7xl mx-auto px-6 py-16">
-      {/* TODO: replace with real testimonials */}
+      {/* Testimonial */}
       {!slug && (
-        <div className="max-w-xl mx-auto mb-12 bg-[#12121a] rounded-2xl border border-gray-800 p-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5 }}
+          className="max-w-xl mx-auto mb-12 bg-[#12121a] rounded-2xl border border-gray-800 p-6 text-center"
+        >
           <blockquote className="text-gray-300 italic mb-3">
             &ldquo;I&apos;m not technical at all. I had the Home Services package running in under 20 minutes
             and it followed up with 3 customers I had forgotten about. Paid for itself the same day.&rdquo;
@@ -59,26 +66,59 @@ export default function PricingSelector({ slug, selfInstallPrice = 49 }: Pricing
           <div className="mt-2 inline-block bg-emerald-900/30 text-emerald-400 text-xs font-medium px-3 py-1 rounded-full">
             Result: 3 recovered follow-ups &middot; Day 1
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Price anchor */}
       {!slug && (
-        <div className="max-w-lg mx-auto mb-8 text-center text-sm text-gray-400">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="max-w-lg mx-auto mb-8 text-center text-sm text-gray-400"
+        >
           AI setup consultants charge <strong className="text-white">$2,500–$15,000</strong> per project.
           Our packages start at <strong className="text-white">$49</strong> — and you own it forever.
-        </div>
+        </motion.div>
       )}
 
-      <h2 className="text-3xl font-bold text-center mb-4">Choose Your Install Experience</h2>
-      <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">Every tier includes the full package. Pick how much help you want with setup.</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-3xl font-bold mb-4">Choose Your Install Experience</h2>
+        <p className="text-gray-400 max-w-2xl mx-auto">Every tier includes the full package. Pick how much help you want with setup.</p>
+      </motion.div>
+
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-40px" }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.12 } },
+        }}
+      >
         {tiers.map((tier) => {
           const isSelected = selected === tier.id;
           const price = tier.priceKey ? selfInstallPrice : tier.price;
           return (
-            <div key={tier.id} onClick={() => setSelected(tier.id)}
-              className={`relative rounded-2xl p-6 cursor-pointer transition-all ${isSelected ? "bg-blue-600/10 border-2 border-blue-500" : "bg-[#12121a] border border-gray-800 hover:border-gray-700"}`}>
+            <motion.div
+              key={tier.id}
+              variants={{
+                hidden: { opacity: 0, y: 24 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              onClick={() => setSelected(tier.id)}
+              className={`relative rounded-2xl p-6 cursor-pointer transition-colors ${isSelected ? "bg-blue-600/10 border-2 border-blue-500" : "bg-[#12121a] border border-gray-800 hover:border-gray-700"}`}
+            >
               {tier.popular && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-semibold px-4 py-1 rounded-full">Most Popular</span>
               )}
@@ -98,21 +138,31 @@ export default function PricingSelector({ slug, selfInstallPrice = 49 }: Pricing
               {tier.riskReversal && (
                 <p className="text-xs text-emerald-400/80 mb-4 italic">{tier.riskReversal}</p>
               )}
-              <Link href={tier.ctaHref(slug)}
-                className={`block text-center py-3 rounded-xl font-semibold transition ${
-                  tier.premium
-                    ? "border border-yellow-600/50 bg-yellow-900/10 hover:bg-yellow-900/20 text-yellow-300"
-                    : isSelected
-                      ? "bg-blue-600 hover:bg-blue-500 text-white"
-                      : "bg-gray-800 hover:bg-gray-700 text-gray-300"
-                }`}>
-                {slug ? tier.ctaText(price!) : tier.ctaText(selfInstallPrice)}
-              </Link>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={isSelected ? "selected" : "default"}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <Link href={tier.ctaHref(slug)}
+                    className={`block text-center py-3 rounded-xl font-semibold transition ${
+                      tier.premium
+                        ? "border border-yellow-600/50 bg-yellow-900/10 hover:bg-yellow-900/20 text-yellow-300"
+                        : isSelected
+                          ? "bg-blue-600 hover:bg-blue-500 text-white"
+                          : "bg-gray-800 hover:bg-gray-700 text-gray-300"
+                    }`}>
+                    {slug ? tier.ctaText(price!) : tier.ctaText(selfInstallPrice)}
+                  </Link>
+                </motion.div>
+              </AnimatePresence>
               <p className="text-xs text-gray-600 text-center mt-3">&#9889; Average install time: 15 minutes</p>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 }

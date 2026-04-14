@@ -53,7 +53,7 @@ export default function PackageGrid({ packages }: PackageGridProps) {
       <p className="text-gray-500 text-sm mb-6">{filtered.length} package{filtered.length !== 1 ? "s" : ""} found</p>
       {filtered.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((pkg) => (<PackageCard key={pkg.slug} pkg={pkg} />))}
+          {filtered.map((pkg, i) => (<PackageCard key={pkg.slug} pkg={pkg} index={i} />))}
         </div>
       ) : (
         <div className="text-center py-16">
