@@ -3,12 +3,18 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="nav-blur sticky top-0 z-50 border-b border-gray-800">
+    <motion.nav
+      className="nav-blur sticky top-0 z-50 border-b border-gray-800"
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+    >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5">
           <svg width="32" height="32" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -29,28 +35,49 @@ export default function Navbar() {
           <Link href="/packages" className="hover:text-white transition">Packages</Link>
           <Link href="/#how-it-works" className="hover:text-white transition">How It Works</Link>
           <Link href="/#pricing" className="hover:text-white transition">Pricing</Link>
-          <Link href="/quiz" className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-lg font-medium transition">
-            Find My Package
-          </Link>
+          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+            <Link href="/quiz" className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-lg font-medium transition">
+              Find My Package
+            </Link>
+          </motion.div>
         </div>
 
         {/* Mobile menu button */}
         <button className="md:hidden text-gray-400 hover:text-white" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={mobileOpen ? "close" : "open"}
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              className="block"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.span>
+          </AnimatePresence>
         </button>
       </div>
 
       {/* Mobile nav */}
-      {mobileOpen && (
-        <div className="md:hidden border-t border-gray-800 px-6 py-4 flex flex-col gap-4 text-sm">
-          <Link href="/packages" className="text-gray-400 hover:text-white transition" onClick={() => setMobileOpen(false)}>Packages</Link>
-          <Link href="/#how-it-works" className="text-gray-400 hover:text-white transition" onClick={() => setMobileOpen(false)}>How It Works</Link>
-          <Link href="/#pricing" className="text-gray-400 hover:text-white transition" onClick={() => setMobileOpen(false)}>Pricing</Link>
-          <Link href="/quiz" className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg font-medium transition text-center" onClick={() => setMobileOpen(false)}>
-            Find My Package
-          </Link>
-        </div>
-      )}
-    </nav>
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            className="md:hidden border-t border-gray-800 px-6 py-4 flex flex-col gap-4 text-sm overflow-hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <Link href="/packages" className="text-gray-400 hover:text-white transition" onClick={() => setMobileOpen(false)}>Packages</Link>
+            <Link href="/#how-it-works" className="text-gray-400 hover:text-white transition" onClick={() => setMobileOpen(false)}>How It Works</Link>
+            <Link href="/#pricing" className="text-gray-400 hover:text-white transition" onClick={() => setMobileOpen(false)}>Pricing</Link>
+            <Link href="/quiz" className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg font-medium transition text-center" onClick={() => setMobileOpen(false)}>
+              Find My Package
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }

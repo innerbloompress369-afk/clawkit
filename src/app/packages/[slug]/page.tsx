@@ -7,6 +7,7 @@ import TierBadge from "@/components/ui/TierBadge";
 import DifficultyBadge from "@/components/ui/DifficultyBadge";
 import ArchitectureDiagram from "@/components/packages/ArchitectureDiagram";
 import PricingSelector from "@/components/pricing/PricingSelector";
+import FadeInSection from "@/components/ui/FadeInSection";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -34,16 +35,19 @@ export default async function PackageDetailPage({ params }: PageProps) {
         <Link href="/packages" className="hover:text-white transition">Packages</Link> / <span className="text-gray-300">{pkg.name}</span>
       </div>
 
-      <div className="mb-12">
-        <div className="flex flex-wrap items-center gap-3 mb-4">
-          <TierBadge tier={pkg.tier} />
-          <DifficultyBadge difficulty={pkg.installDifficulty} />
-          <span className="text-xs text-gray-500">{pkg.category}</span>
+      <FadeInSection>
+        <div className="mb-12">
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <TierBadge tier={pkg.tier} />
+            <DifficultyBadge difficulty={pkg.installDifficulty} />
+            <span className="text-xs text-gray-500">{pkg.category}</span>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{pkg.name}</h1>
+          <p className="text-xl text-gray-400 max-w-3xl">{pkg.description}</p>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">{pkg.name}</h1>
-        <p className="text-xl text-gray-400 max-w-3xl">{pkg.description}</p>
-      </div>
+      </FadeInSection>
 
+      <FadeInSection delay={0.1}>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
         <div className="bg-[#12121a] border border-gray-800 rounded-xl p-4 text-center">
           <Clock size={20} className="text-blue-400 mx-auto mb-2" />
@@ -66,14 +70,18 @@ export default async function PackageDetailPage({ params }: PageProps) {
           <div className="text-xs text-gray-500">Security Audited</div>
         </div>
       </div>
+      </FadeInSection>
 
+      <FadeInSection delay={0.15}>
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6">System Architecture</h2>
         <div className="bg-[#12121a] border border-gray-800 rounded-2xl p-6 md:p-8">
           <ArchitectureDiagram agents={pkg.agents} connectors={pkg.connectors} workflows={pkg.workflows} />
         </div>
       </section>
+      </FadeInSection>
 
+      <FadeInSection delay={0.1}>
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-2">Your First 3 Missions</h2>
         <p className="text-gray-400 mb-6">Complete these right after install to see the system in action.</p>
@@ -91,6 +99,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
           ))}
         </div>
       </section>
+      </FadeInSection>
 
       <PricingSelector slug={pkg.slug} selfInstallPrice={pkg.pricing.selfInstall} />
     </main>

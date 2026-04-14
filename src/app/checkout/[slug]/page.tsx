@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPackages, getPackageBySlug } from "@/lib/packages";
+import FadeInSection from "@/components/ui/FadeInSection";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -25,6 +26,7 @@ export default async function CheckoutPage({ params }: PageProps) {
 
   return (
     <main className="max-w-2xl mx-auto px-6 py-16 text-center">
+      <FadeInSection>
       <div className="bg-[#12121a] border border-gray-800 rounded-2xl p-8 md:p-12">
         <div className="w-16 h-16 rounded-2xl bg-blue-600/10 border border-blue-600/20 flex items-center justify-center mx-auto mb-6">
           <span className="text-3xl">🚀</span>
@@ -39,6 +41,7 @@ export default async function CheckoutPage({ params }: PageProps) {
         </div>
         <Link href={`/packages/${pkg.slug}`} className="text-gray-500 hover:text-white text-sm transition">&larr; Back to {pkg.name}</Link>
       </div>
+      </FadeInSection>
     </main>
   );
 }
