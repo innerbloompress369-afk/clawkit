@@ -1,9 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-background: #0a0a0f;
+  --color-foreground: #e2e8f0;
+  --color-card: #12121a;
+  --color-card-foreground: #e2e8f0;
+  --color-border: #1e293b;
+  --color-muted: #1e293b;
+  --color-muted-foreground: #64748b;
+  --color-secondary: #1e293b;
+  --color-secondary-foreground: #cbd5e1;
+}
+
 @layer base {
   body {
-    @apply bg-[#0a0a0f] text-slate-200 antialiased;
+    @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
   }
 }
